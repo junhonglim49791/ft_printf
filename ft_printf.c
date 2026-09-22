@@ -6,7 +6,7 @@
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 09:07:24 by junlim            #+#    #+#             */
-/*   Updated: 2026/09/22 18:49:04 by junlim           ###   ########.fr       */
+/*   Updated: 2026/09/22 18:55:01 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_printf(const char *str, ...)
 			len += ft_convert_c(str[i]);
 		i++;
 	}
-	// va_end(args);
+	va_end(args);
 	return (len);
 }
 /*TESTS

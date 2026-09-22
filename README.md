@@ -56,9 +56,6 @@ cc ft_printf.c -L . -l:libftprintf.a
 ````
    Vertically, if we keep subtracting the number with total values in the range, we can get the smallest representation. For example, `10` maps to `-2` via `10 - 6 - 6`.
 
-
-Want the "Resources" and "Use of AI" sections filled in next, or are you handling those yourself since they're marked as placeholders?
-
 ## Resources
 - https://man7.org/linux/man-pages/man3/printf.3.html
 - https://www.geeksforgeeks.org/c/variadic-functions-in-c/

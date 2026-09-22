@@ -7,7 +7,7 @@ FUNCS	= ft_printf \
 		  ft_convert_d_i \
 		  ft_convert_u \
 		  ft_convert_x \
-		  ft_convert_X \
+		  ft_convert_upper_x \
 		  ft_utoa_base
 
 SRCS = $(FUNCS:=.c)

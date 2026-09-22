@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_s.c                                     :+:      :+:    :+:   */
+/*   ft_convert_X.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 14:57:31 by junlim            #+#    #+#             */
-/*   Updated: 2026/09/22 17:05:16 by junlim           ###   ########.fr       */
+/*   Created: 2026/09/21 22:03:25 by junlim            #+#    #+#             */
+/*   Updated: 2026/09/22 17:12:48 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_convert_s(char *str)
+int	ft_convert_upper_x(unsigned int n)
 {
-	if (!str)
-	{
-		ft_putstr_fd(NULL_STR, 1);
-		return (ft_strlen(NULL_STR));
-	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
+	char	*uppercase_hex_num;
+	int		len;
 
-// int main (void)
-// {
-// 	ft_convert_s(NULL);
-// }
-/*edge cases
-1. empty string
-*/
+	uppercase_hex_num = ft_utoa_base(n, UPPER_HEX_BASE);
+	len = ft_strlen(uppercase_hex_num);
+	ft_putstr_fd(uppercase_hex_num, 1);
+	free(uppercase_hex_num);
+	return (len);
+}

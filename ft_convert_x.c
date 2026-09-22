@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_s.c                                     :+:      :+:    :+:   */
+/*   ft_convert_x.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 14:57:31 by junlim            #+#    #+#             */
-/*   Updated: 2026/09/22 17:05:16 by junlim           ###   ########.fr       */
+/*   Created: 2026/09/21 22:00:17 by junlim            #+#    #+#             */
+/*   Updated: 2026/09/22 17:12:15 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_convert_s(char *str)
+int	ft_convert_x(unsigned int n)
 {
-	if (!str)
-	{
-		ft_putstr_fd(NULL_STR, 1);
-		return (ft_strlen(NULL_STR));
-	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
+	char	*lowercase_hex_num;
+	int		len;
 
-// int main (void)
-// {
-// 	ft_convert_s(NULL);
-// }
-/*edge cases
-1. empty string
-*/
+	lowercase_hex_num = ft_utoa_base(n, LOWER_HEX_BASE);
+	len = ft_strlen(lowercase_hex_num);
+	ft_putstr_fd(lowercase_hex_num, 1);
+	free(lowercase_hex_num);
+	return (len);
+}

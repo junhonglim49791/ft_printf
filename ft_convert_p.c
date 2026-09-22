@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_s.c                                     :+:      :+:    :+:   */
+/*   ft_convert_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 14:57:31 by junlim            #+#    #+#             */
-/*   Updated: 2026/09/22 17:05:16 by junlim           ###   ########.fr       */
+/*   Created: 2026/09/22 08:34:57 by junlim            #+#    #+#             */
+/*   Updated: 2026/09/22 17:27:09 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_convert_s(char *str)
+int	ft_convert_p(unsigned long n)
 {
-	if (!str)
-	{
-		ft_putstr_fd(NULL_STR, 1);
-		return (ft_strlen(NULL_STR));
-	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
+	char	*lower_hex_num;
+	char	*address;
+	int		len;
 
-// int main (void)
-// {
-// 	ft_convert_s(NULL);
-// }
-/*edge cases
-1. empty string
-*/
+	if (!n)
+	{
+		ft_putstr_fd(NULL_PTR, 1);
+		return (ft_strlen(NULL_PTR));
+	}
+	lower_hex_num = ft_utoa_base(n, LOWER_HEX_BASE);
+	address = ft_strjoin(ADDRESS_PREFIX, lower_hex_num);
+	len = ft_strlen(address);
+	ft_putstr_fd(address, 1);
+	free(lower_hex_num);
+	free(address);
+	return (len);
+}
